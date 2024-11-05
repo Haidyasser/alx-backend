@@ -20,14 +20,19 @@ app.config.from_object(Config)
 @babel.localeselector
 def get_locale():
     """ Determines the best match with our
-    supported languages. """
+    supported languages or forces a specific locale. """
+    # Check if a 'locale' parameter is present
+    # in the request
+    locale = request.args.get('locale')
+    if locale in app.config['LANGUAGES']:
+        return locale
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 @app.route('/')
 def index():
     """ Returns index """
-    return render_template('3-index.html')
+    return render_template('4-index.html')
 
 
 if __name__ == "__main__":
