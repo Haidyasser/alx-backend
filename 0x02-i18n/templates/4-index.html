@@ -1,19 +1,13 @@
-<!doctype html>
-<html lang="{{ g.user.locale if g.user else 'en' }}">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <title>Welcome to Holberton</title>
+    <title>{{ _('home_title') }}</title>
 </head>
 
 <body>
-    <h1>Welcome to Holberton</h1>
-    {% if g.user %}
-    {% set username = g.user.name %}
-    <p>{% trans %}You are logged in as {{ username }}.{% endtrans %}</p>
-    {% else %}
-    <p>{% trans %}You are not logged in.{% endtrans %}</p>
-    {% endif %}
+    <h1>{{ _('home_header') }}</h1>
 </body>
 
 </html>
